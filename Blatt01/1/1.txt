@@ -2442,3 +2442,5 @@ N΅³οKκ\QªΗyP4¤΅ÿnμ®'κRν+.rει=	ιεΛ‹»Χ‹!‚“ρy@»MsaΌ=ΤΨ¤Ώ›³κaΕ7kΰ@{
 (1.4.h.2)
 Es ist moeglich mit folgener anweisung:
 
+tar cfvz [ARCHIV].tar.gz [VERZEICHNIS1] [DATEI1]
+tar xfvz [ARCHIV].tar.gz
