@@ -1,21 +1,8 @@
 #!/bin/bash
- srun -N 4 -n 4 hostname
-#SBATCH --error=job.err --output=job.out
-srun -n 4 hostname
-#SBATCH --error=job.err --output=job.out
-srun -n 4 hostname
-#SBATCH --error=job.err --output=job.out
-srun -n 4 hostname
-#SBATCH --error=job.err --output=job.out
-srun -n 4 hostname
-#SBATCH --error=job.err --output=job.out
-srun -n 4 hostname
-#SBATCH --error=job.err --output=job.out
-srun -n 4 hostname
-#SBATCH --error=job.err --output=job.out
-srun -n 4 hostname
-#SBATCH --error=job.err --output=job.out
-srun -n 4 hostname
-#SBATCH --error=job.err --output=job.out
-srun -n 4 hostname
 
+#SBATCH --time=1
+#SBATCH -N 2 -n 10
+#SBATCH --error=job.err --output=job.out
+
+srun hostname
+mpiexec ./mpitest.x
