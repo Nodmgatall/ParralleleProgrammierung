@@ -1,6 +1,8 @@
 #include <omp.h>
 #include <mpi.h>
 #include <stdlib.h>
+#include <stdio.h>
+
 int main(int argc, char **argv)
 {
 	int rank, size;
@@ -9,5 +11,6 @@ int main(int argc, char **argv)
 	MPI_Comm_size(MPI_COMM_WORLD, &size);
 	printf("Hello World from process %d of %d\n",rank,size);
 	MPI_Finalize();
+
+	return EXIT_SUCCESS;
 }
-return EXIT_SUCCESS;
