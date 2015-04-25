@@ -1,3 +1,7 @@
+#Compressed and Archive
+*.tar
+*.tar.gz
+
 # Compiled Object files
 *.slo
 *.lo
