@@ -24,7 +24,7 @@ int main(int argc, char** argv)
 	int threadID;
 	int numOfTasks;
 	int *recvBuf;
-	int index = 0;
+	int index = 1;
 	
 	MPI_Comm_rank(MPI_COMM_WORLD, &threadID);
 	MPI_Comm_size(MPI_COMM_WORLD, &numOfTasks);
@@ -46,7 +46,7 @@ int main(int argc, char** argv)
 			}
 			MPI_Send(&outBuf,2,MPI_INT,index,0,MPI_COMM_WORLD);
 		}
-		index = 0;
+		index = 1;
 		int sum = 0;
 		for(;index < numOfTasks;index++)
 		{
@@ -58,7 +58,7 @@ int main(int argc, char** argv)
 		printf("Total sum is: %d \n", sum);
 	}
 	debug("Proc %d is Starting\n",threadID);
-	index = 0;
+	index = 1;
 	int sectionlength = ((argc - 1) / PROCESSES);
 
 	MPI_Recv(&recvBuf,2,MPI_INT,0,1,MPI_COMM_WORLD,MPI_STATUS_IGNORE);
