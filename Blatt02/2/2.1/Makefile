@@ -14,6 +14,7 @@ all:
 
 debug:
 	$(CC_FINAL) $(CFLAGS_DEBUG) -o $(EXECUTABLE) $(MAIN)
+	./debug.run faku.x
 
 gdb:
 	$(CC_FINAL) $(CFLAGS_GDB) -o $(EXECUTABLE) $(MAIN)
