@@ -1,0 +1,32 @@
+struct object
+	{
+	doubble mass
+	vector<3D_Physics_Vector<double>> velocity
+	doubble distance_to_main_body
+	}
+
+vector<objects> objects = randomly generate x object with randomly generated
+			  atributes sorted by distance to main body
+			  element[0] = is mainbody -> huge mass, velo = 0 , d = 0
+
+mpi start
+	each Processor has vector objects
+	calculate start range in objects (num of objects / processes (+- Problem1) )
+	calculate gravitational effect of all objects on all y (y is element of: range start to end index of Process)
+	move y object by velocity
+	check for collision
+		when collision happend create new object
+		calculate new velocity, mass , and set distance to collision point 
+		delete collided objects
+	sort end to start for distance to main body
+	send all changes of all y to others (MPI_Scatter)
+
+
+Problems to solve:
+	1. what happens when an object in P1 would collide with another in P2
+		send first and last to others?
+		give each P +2 objects so that P1 and P2 each know of the nearest object whick could collide
+		1.1 what if there are more than 1 object which could collide with an object in anothers P range
+	2. is there a way to reduce calculations through adding a variable that indicates which objects 
+	   interact with other with a force of more than x (x = min value of gravitational pull to have effect on o)
+	3. 
