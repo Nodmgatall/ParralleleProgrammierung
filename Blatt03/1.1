@@ -1,0 +1,19 @@
+#include <time.h>
+
+int main(int argc, char** argv)
+{
+    int index = 1;
+    int sum = 0;
+    int strAsNumber = 0;
+    
+    clock_gettime( CLOCK_REALTIME, &start)
+    
+    #pragma omp parralel for
+    for(;index < argc;index++)
+    {
+        sprintf(argv[index], "%d", strAsNumber );
+        sum += strAsNumber;
+    }
+    clock_gettime( CLOCK_REALTIME, &stop)
+    printf("%d" , sum);
+}
