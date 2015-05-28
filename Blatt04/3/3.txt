@@ -1,0 +1,3 @@
+Auf dem screenshot ist zu erkennen das trotz compilierbarem code und richtigem ergebniss
+nur ein thread gestartet wird. Auch ist zu erkennen dass da nur ein tread gestartet wird,
+kein overhead vorhanden ist.

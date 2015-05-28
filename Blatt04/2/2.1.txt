@@ -1,0 +1,69 @@
+heidmann@cluster:~$ srun operf ./1.1.x $(for x in $(seq 1 100000) ; do echo -n "$x "; done) 
+operf: Profiler started
+//list of numbers
+Sum: 163672354
+Time: 32238535 ns
+
+// There was a warning about lost sample data
+
+profiling done
+
+
+opreport:
+
+CPU: Intel Westmere microarchitecture, speed 2667 MHz (estimated)
+Counted CPU_CLK_UNHALTED events (Clock cycles when not halted) with a unit mask of 0x00 (No unit mask) count 100000
+CPU_CLK_UNHALT...|
+  samples|      %|
+------------------
+     1178 100.000 1.1.x
+	CPU_CLK_UNHALT...|
+	  samples|      %|
+	------------------
+	      806 68.4211 libc-2.15.so
+	      339 28.7776 no-vmlinux
+	       18  1.5280 1.1.x
+	       12  1.0187 libpthread-2.15.so
+	        3  0.2547 ld-2.15.so
+
+
+opreport -1
+
+CPU: Intel Westmere microarchitecture, speed 2667 MHz (estimated)
+Counted CPU_CLK_UNHALTED events (Clock cycles when not halted) with a unit mask of 0x00 (No unit mask) count 100000
+samples  %        image name               symbol name
+339      28.9249  no-vmlinux               /no-vmlinux
+260      22.1843  libc-2.15.so             _IO_vfscanf
+154      13.1399  libc-2.15.so             vfprintf
+82        6.9966  libc-2.15.so             __GI_____strtoll_l_internal
+71        6.0580  libc-2.15.so             _itoa_word
+35        2.9863  libc-2.15.so             get_next_seq
+31        2.6451  libc-2.15.so             _IO_file_attach@@GLIBC_2.2.5
+31        2.6451  libc-2.15.so             vfwprintf
+26        2.2184  libc-2.15.so             _IO_file_fopen@@GLIBC_2.2.5
+19        1.6212  libc-2.15.so             get_next_seq_cached
+17        1.4505  1.1.x                    main
+17        1.4505  libc-2.15.so             _IO_flush_all_linebuffered
+16        1.3652  libc-2.15.so             __strtol_internal
+16        1.3652  libc-2.15.so             mi_arena.13172
+12        1.0239  libc-2.15.so             _IO_list_lock
+6         0.5119  libc-2.15.so             pvalloc
+6         0.5119  libpthread-2.15.so       _pthread_cleanup_pop_restore
+6         0.5119  libpthread-2.15.so       _pthread_cleanup_push_defer
+4         0.3413  libc-2.15.so             _IO_cleanup
+3         0.2560  libc-2.15.so             _IO_default_imbue
+3         0.2560  libc-2.15.so             _IO_iter_end
+2         0.1706  libc-2.15.so             _IO_default_read
+2         0.1706  libc-2.15.so             _IO_default_stat
+2         0.1706  libc-2.15.so             _IO_file_underflow@@GLIBC_2.2.5
+2         0.1706  libc-2.15.so             _L_lock_390
+1         0.0853  ld-2.15.so               _dl_relocate_object
+1         0.0853  ld-2.15.so               do_lookup_x
+1         0.0853  ld-2.15.so               strcmp
+1         0.0853  libc-2.15.so             _IO_default_showmanyc
+1         0.0853  libc-2.15.so             _IO_default_write
+1         0.0853  libc-2.15.so             _IO_flush_all
+1         0.0853  libc-2.15.so             _IO_iter_file
+1         0.0853  libc-2.15.so             _IO_iter_next
+1         0.0853  libc-2.15.so             _L_unlock_430
+1         0.0853  libc-2.15.so             _L_unlock_504
